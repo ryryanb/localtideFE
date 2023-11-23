@@ -1,0 +1,268 @@
+<!-- wp:html -->
+<p>&nbsp;</p>
+<div>
+   <style>
+      #brokerData {
+      display: none;
+      }
+      #brokerInfoTable {
+      background-color: #ffffff; /* Main table background color */
+      border-radius: 10px; /* Rounded border for the table */
+      width: 100%; /* Table width */
+      max-width: 600px; /* Maximum table width */
+      margin: 0 auto; /* Center the table */
+      border: 2px solid #243369; /* Border color for the whole table */
+      border-collapse: collapse; /* Ensure borders are collapsed */
+      }
+      #brokerInfoTable td,
+      #brokerInfoTable th {
+      padding: 15px; /* Padding for table cells */
+      border: 2px solid #243369; /* Border color for individual cells */
+      text-align: left; /* Text alignment for cells */
+      font-size: 1.1em; /* Font size */
+      color: #243369; /* Text color for all cells */
+      }
+      #brokerInfoTable th {
+      font-size: 1.4em; /* Increase font size for table headers */
+      font-weight: bold; /* Bold font for table headers */
+      text-align: center; /* Center text in the header cells */
+      }
+
+      .star-icon {
+        filter: invert(88%) sepia(60%) saturate(2073%) hue-rotate(318deg)
+          brightness(93%) contrast(104%);
+        height: 2em;
+        margin-right: -0.3em;
+        margin-top: -0.08em;
+        vertical-align: top;
+        width: 2em;
+      }
+
+      .star-icon:last-child {
+        margin-right: 0.2em;
+      }
+   </style>
+</div>
+<p>&nbsp;</p>
+<div>
+   <script>
+      function getParameterByName(name, url) {
+        if (!url) url = window.location.href;
+        name = name.replace(/[\[\]]/g, "\\$&");
+        var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+          results = regex.exec(url);
+        if (!results) return null;
+        if (!results[2]) return "";
+        return decodeURIComponent(results[2].replace(/\+/g, " "));
+      }
+      
+      var dotNumber = getParameterByName("dotNumber");
+
+var apiURL = `/wp-admin/admin-ajax.php?action=carrier_data_request&dotNumber=${dotNumber}`;
+     console.log("dotNumber:", dotNumber);
+      console.log("apiURL:", apiURL);
+      console.log("Fetching data from URL:", apiURL);
+      jQuery.ajax({
+    url: apiURL,
+    method: 'GET',
+    dataType: 'json',
+    success: function(data) {
+      console.log("API Response:", data);
+          if (data.content && data.content.carrier) {
+            var carrier = data.content.carrier;
+            var physicalAddress = `${carrier.phyStreet}, ${carrier.phyCity}, ${carrier.phyState} ${carrier.phyZipcode}`;
+            document.getElementById("operating-status").innerText =
+              carrier.allowedToOperate === "Y" ? "Allowed" : "Not Allowed";
+            document.getElementById("_legalName").innerText =
+              carrier.legalName || "N/A";
+            document.getElementById("legalNameHeader").innerText =
+              carrier.legalName || "N/A";
+      
+            document.getElementById("_dbaName").innerText =
+              carrier.dbaName || "N/A";
+      
+            document.getElementById("physicalAddress").innerText =
+              physicalAddress || "N/A";
+            document.getElementById("_dotNumber").innerText =
+              carrier.dotNumber || "N/A";
+      
+            // Show the table when data is successfully loaded
+            document.getElementById("brokerData").style.display = "block";
+            //alert(carrier.legalName);
+            /*  textQueryInput = carrier.legalName;
+            if (carrier.legalName) {
+              textQueryInput = carrier.legalName;
+            } else if (carrier.dbaName) {
+              textQueryInput = carrier.dbaName;
+            } else if (physicalAddress) {
+              textQueryInput = physicalAddress;
+            } else {
+              alert("No textqueryinput");
+            }*/
+
+            const textToSearch = carrier.legalName + " " + physicalAddress;
+            const dataElement = document.getElementById("main-data");
+      
+            const reviewsElement = document.getElementById("reviews");
+            const ts47reviewsElement = document.getElementById("ts47reviews");
+            reviewsElement.innerHTML = "";
+            dataElement.innerHTML = "";
+            ts47reviewsElement.innerHTML = "";
+   
+   //alert(document.getElementById("ts47reviewsshortcode").innerText); 
+   if (document.getElementById("ts47reviewsshortcode").innerText.includes("There are no reviews found")) {
+         document.getElementById("ts47reviewsshortcode").style.display = "block";
+   }
+   else {
+   jQuery.ajax({
+      url: "https://"+window.location.hostname+"/wp-admin/admin-ajax.php",
+      method: 'get',            // Use the GET method to send data
+      data: { 
+          'action': 'display_ts47reviews_action', // Specify the AJAX action
+          'source': 'load',
+          'pagetype': 'broker',
+            'placeid': carrier.dotNumber,
+      },              // Data to be sent with the request
+      success: function(response) {
+      
+        if (response.includes('displayflag123')) {
+            document.getElementById("ts47reviewsshortcode").style.display = "block";
+        }
+        else {
+          ts47reviewsElement.innerHTML = response;
+        var unlockButton = document.getElementById("unlockButton");
+
+                unlockButton.addEventListener("click", function () {
+                    jQuery.ajax({
+                        url: "https://" + window.location.hostname + "/wp-admin/admin-ajax.php",
+                        method: "get",
+                        data: { 
+                            "action": "display_ts47reviews_action",
+                            "source": "button",
+                            "pagetype": "broker",
+                            "placeid": carrier.dotNumber,
+                        },
+                        success: function(response) {
+                           
+                           // var sourceDiv = document.getElementById('sourceDivReviews');
+                           // var destinationDiv = document.getElementById('ts47reviewsElement');
+                            document.getElementById("ts47reviewsshortcode").style.display = "block";
+
+                            ts47reviewsElement.innerHTML = "";
+                        },
+                        error: function(error) {
+                          
+                            ts47reviewsElement.innerHTML = "No TS47 reviews available.";
+                        }
+                    });
+                });
+              }
+      
+      },
+      error: function(error) {
+      
+
+          ts47reviewsElement.innerHTML = "No TS47 reviews available";
+
+      }
+      });  
+}
+// Make the AJAX request
+      jQuery.ajax({
+      url: "https://"+window.location.hostname+"/wp-admin/admin-ajax.php",
+      method: 'get',            // Use the GET method to send data
+      data: { 
+          'action': 'google_api_request', // Specify the AJAX action
+          'searchText': textToSearch
+      },              // Data to be sent with the request
+      success: function(response) {
+         
+         if (!response.places || response.places.length === 0 ||
+                  !response.places[0].reviews ||
+                  response.places[0].reviews.length === 0
+                ) {
+               reviewsElement.innerHTML = "No Google reviews available";
+         } else {
+            response.places[0].reviews.forEach((review, index) => {
+                        const author = review.authorAttribution.displayName;
+                       const rating = review.rating;
+                      const text = review.text.text;
+        
+                        // Create a string of star symbols based on the rating
+
+                        const stars =
+                          '<img src="https://fonts.gstatic.com/s/i/googlematerialicons/star/v15/24px.svg" alt="full star" class="star-icon"/>'.repeat(
+                            rating
+                          );
+        
+                        const reviewParagraph = document.createElement("p");
+                        reviewParagraph.innerHTML = `${stars}<br> ${text}<br>-- ${author}`;
+        
+                        reviewsElement.appendChild(reviewParagraph);
+                                
+                      });
+        }
+      
+      },
+      error: function(error) {
+          reviewsElement.innerHTML = "No Google reviews available";
+      }
+      });            
+          } else {
+            // Handle cases where the data structure is not as expected
+            console.error("Data structure not as expected:", data);
+            alert("Unable to retrieve broker information at this time.");
+          }
+    },
+    error: function(error) {
+        console.error("Error:", error);
+          alert(
+            "There was an error fetching broker information. Please try again later."
+          );
+    }
+});    
+        document.getElementById("reviews").style.display = "block";
+        function initMap() {
+
+      }
+
+   </script>
+</div>
+<div id="brokerData">
+   <table id="brokerInfoTable" style="width: 100%; border-collapse: collapse">
+      <tbody>
+         <tr>
+            <th
+               colspan="2"
+               id="legalNameHeader"
+               style="text-align: center; background-color: #243369; color: #ffffff"
+               >
+               Legal Name will be here
+            </th>
+         </tr>
+         <tr>
+            <td>Operating Status:</td>
+            <td id="operating-status"></td>
+         </tr>
+         <tr>
+            <td>Legal Name:</td>
+            <td id="_legalName"></td>
+         </tr>
+         <tr>
+            <td>DBA Name:</td>
+            <td id="_dbaName"></td>
+         </tr>
+         <tr>
+            <td>Physical Address:</td>
+            <td id="physicalAddress"></td>
+         </tr>
+         <tr>
+            <td>DOT Number:</td>
+            <td id="_dotNumber"></td>
+         </tr>
+      </tbody>
+   </table>
+</div>
+<div id="main-data">
+</div>
+<!-- /wp:html -->

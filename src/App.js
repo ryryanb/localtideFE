@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import NewsComponent from './NewsComponent';
+import CurrentsAPINews from './CurrentsAPINews';
 
 function App() {
   const [news, setNews] = useState([]);
@@ -29,6 +30,8 @@ function App() {
       </div>
       <div>
       <NewsComponent />
+      <CurrentsAPINews />
+
     </div>
     </div>
   );
