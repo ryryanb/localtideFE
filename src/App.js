@@ -29,7 +29,6 @@ function App() {
       </ul>
       </div>
       <div>
-      <NewsComponent />
       <CurrentsAPINews />
 
     </div>

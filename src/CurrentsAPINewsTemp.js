@@ -1,4 +1,3 @@
-// CurrentsAPINews.js
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
@@ -8,13 +7,17 @@ const CurrentsAPINews = () => {
   useEffect(() => {
     const fetchNews = async () => {
       try {
-        const backendUrl = process.env.REACT_APP_BACKEND_URL;
+        const url = 'https://api.currentsapi.services/v1/search?' +
+          'keywords=Cavite&language=en&' +
+          'apiKey=RCT5_w2QXXGGoduY1lOnb1Q-e4LePiqORLx-KhW_09LBEDEo';
 
-      // Use the backendUrl variable to make API requests
-        const response = await axios.get(`${backendUrl}/api/currents`);
+        const response = await axios.get(url);
 
-        // Set the news data in the state
-        setNews(response.data);
+        if (response.data && response.data.news) {
+          setNews(response.data.news);
+        } else {
+          console.error('Invalid response format:', response.data);
+        }
       } catch (error) {
         console.error('Error fetching news:', error);
       }
@@ -26,7 +29,7 @@ const CurrentsAPINews = () => {
   return (
     <div>
       <h1>Latest News</h1>
-      {news.map((article) => (
+      {news && news.map((article) => (
         <div key={article.id}>
           <h2>{article.title}</h2>
           <p>{article.description}</p>
