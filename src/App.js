@@ -1,39 +1,34 @@
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
-import NewsComponent from './NewsComponent';
-import CurrentsAPINews from './CurrentsAPINews';
+// App.js
 
-function App() {
-  const [news, setNews] = useState([]);
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Sidebar from './Sidebar';
+//import UserRegistration from './UserRegistration';
+import SignIn from './SignIn';
+import SignUp from './SignUp';
+import Dashboard from './Dashboard';
+//import ActivityPlatform from './ActivityPlatform';
+// Import other components for remaining menu options
 
-  useEffect(() => {
-    axios.get('http://localhost:3000/api/news')
-      .then(response => setNews(response.data))
-      .catch(error => console.error(error));
-  }, []);
-
+const App = () => {
   return (
-    <div>
-      <h1>Naic News</h1>
-      <div>
-      <ul>
-        {news.map(article => (
-          <li key={article._id}>
-            <h3>{article.title}</h3>
-            <p>{article.content}</p>
-            <p>Author: {article.author}</p>
-            <p>Date: {new Date(article.date).toLocaleDateString()}</p>
-            <p>Category: {article.category}</p>
-          </li>
-        ))}
-      </ul>
+    <Router>
+      <div className="app-container">
+        <Sidebar />
+        <div className="main-content">
+          <Routes>
+             <Route path="/sign-in" element={<SignIn />} />  
+             <Route path="/sign-up" element={<SignUp />} /> 
+              <Route path="/dashboard" element={<Dashboard />} /> 
+            {/* <Route path="/user-registration" element={<UserRegistration />} />
+         
+            <Route path="/activity-platform" element={<ActivityPlatform />} />
+            Add routes for other menu options */}
+          </Routes>
+        </div>
       </div>
-      <div>
-      <CurrentsAPINews />
-
-    </div>
-    </div>
+    </Router>
   );
-}
+};
 
 export default App;

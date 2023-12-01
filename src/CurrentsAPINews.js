@@ -25,13 +25,13 @@ const CurrentsAPINews = () => {
 
   return (
     <div>
-      <h1>Latest News</h1>
+   
       {news.map((article) => (
         <div key={article.id}>
           <h2>{article.title}</h2>
           <p>{article.description}</p>
           <p>Author: {article.author}</p>
-          {article.image && <img src={article.image} alt={article.title} />}
+          {article.image && <img className="thumbnail-image" src={article.image} alt={article.title} />}
           <a href={article.url} target="_blank" rel="noopener noreferrer">
             Read more
           </a>
