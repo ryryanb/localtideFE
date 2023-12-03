@@ -6,6 +6,7 @@ import IconButton from '@mui/material/IconButton';
 import SearchIcon from '@mui/icons-material/Search';
 import Typography from '@mui/material/Typography';
 import Link from '@mui/material/Link';
+import { Link as RouterLink } from 'react-router-dom';
 
 function Header(props) {
   const { sections, title } = props;
@@ -27,9 +28,11 @@ function Header(props) {
         <IconButton>
           <SearchIcon />
         </IconButton>
-        <Button variant="outlined" size="small">
-          Sign up
-        </Button>
+        <RouterLink to="/sign-in" style={{ textDecoration: 'none' }}>
+      <Button variant="outlined" size="small">
+        Login
+      </Button>
+    </RouterLink>
       </Toolbar>
       <Toolbar
         component="nav"

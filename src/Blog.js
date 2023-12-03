@@ -10,7 +10,7 @@ import Header from './Header';
 import MainFeaturedPost from './MainFeaturedPost';
 import FeaturedPost from './FeaturedPost';
 import Main from './Main';
-import Sidebar from './SidebarBlog';
+import SidebarBlog from './SidebarBlog';
 import Footer from './Footer';
 import post1 from './blog-post.1.md';
 import post2 from './blog-post.2.md';
@@ -101,7 +101,7 @@ export default function Blog() {
           </Grid>
           <Grid container spacing={5} sx={{ mt: 3 }}>
             <Main title="From the firehose" posts={posts} />
-            <Sidebar
+            <SidebarBlog
               title={sidebar.title}
               description={sidebar.description}
               archives={sidebar.archives}
