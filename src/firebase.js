@@ -1,24 +1,22 @@
 // Import necessary Firebase modules
 import { initializeApp } from 'firebase/app';
-import { getFirestore } from 'firebase/firestore';
 import { getAuth } from 'firebase/auth'; // Add this import statement
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyDfbm6zMUTTEAT-R-33Iy-DGht94yGn5H4",
-  authDomain: "localtide-firebase-8f647.firebaseapp.com",
-  projectId: "localtide-firebase-8f647",
-  storageBucket: "localtide-firebase-8f647.appspot.com",
-  messagingSenderId: "925909487006",
-  appId: "1:925909487006:web:d7553c7cc939b622f75a8f",
-  measurementId: "G-70GM3Y829K"
+  apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
+  authDomain: process.env.REACT_APP_FIREBASE_AUTH_DOMAIN,
+  projectId: process.env.REACT_APP_FIREBASE_PROJECT_ID,
+  storageBucket: process.env.REACT_APP_FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: process.env.REACT_APP_FIREBASE_MESSAGING_SENDER_ID,
+  appId: process.env.REACT_APP_FIREBASE_APP_ID,
+  measurementId: process.env.REACT_APP_FIREBASE_MEASUREMENT_ID,
 };
 
+
 // Initialize Firebase
-const firebaseApp = initializeApp(firebaseConfig);
-const auth = getAuth(firebaseApp);
+const app = initializeApp(firebaseConfig);
 
-// Get Firestore instance
-const firestore = getFirestore(firebaseApp);
-
-export { auth, firestore };
+// Initialize Firebase Authentication and get a reference to the service
+export const auth = getAuth(app);
+export default app;

@@ -8,6 +8,7 @@ const Sidebar = () => {
     'Sign Up',
     'Sign In',
     'Dashboard',
+    'Blog',
     'Activity Platform',
     'Local News',
     'Points of Interest',

@@ -7,6 +7,8 @@ import Sidebar from './Sidebar';
 import SignIn from './SignIn';
 import SignUp from './SignUp';
 import Dashboard from './Dashboard';
+import Blog from './Blog';
+import Home from './Home';
 //import ActivityPlatform from './ActivityPlatform';
 // Import other components for remaining menu options
 
@@ -14,12 +16,13 @@ const App = () => {
   return (
     <Router>
       <div className="app-container">
-        <Sidebar />
+        <Blog />
         <div className="main-content">
           <Routes>
              <Route path="/sign-in" element={<SignIn />} />  
              <Route path="/sign-up" element={<SignUp />} /> 
-              <Route path="/dashboard" element={<Dashboard />} /> 
+              <Route path="/dashboard" element={<Dashboard />} />
+              <Route path="/blog" element={<Blog />} />  
             {/* <Route path="/user-registration" element={<UserRegistration />} />
          
             <Route path="/activity-platform" element={<ActivityPlatform />} />
