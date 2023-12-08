@@ -17,6 +17,8 @@ import Portfolio from './Portfolio';
 // Import other components for remaining menu options
 
 const App = () => {
+
+  const urlPrefix = process.env.REACT_APP_URL_PREFIX || '';
   return (
     <Router basename="/localtideFE">
   <div className="app-container">
