@@ -22,7 +22,7 @@ LocalTide goes beyond traditional news platforms, creating an immersive experien
 
 Join LocalTide today and dive into the heartbeat of your community!
 
-Localtide is a work in progress. Development version deployment is at: https://ryryanb.github.io/localtideFE/home
+Localtide is a work in progress. Development version deployment is at: https://ryryanb.github.io/localtideFE
 To date no features are yet production-ready. Backend is separately developed so APIs are temporarily run on the FE.
 Testing Checklist
 
