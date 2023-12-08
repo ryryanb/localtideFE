@@ -18,7 +18,7 @@ import post2 from './blog-post.2.md';
 import post3 from './blog-post.3.md';
 
 const sections = [
-  { title: 'Home', url: '/home' },
+  { title: 'Home', url: '/localtideFE/home' },
   { title: 'News & Blog', url: 'newsandblog' },
   { title: 'Events Calendar', url: '#' },
   { title: 'Explore', url: '/explore' },

@@ -20,7 +20,7 @@ const App = () => {
 
   const urlPrefix = process.env.REACT_APP_URL_PREFIX || '';
   return (
-    <Router>
+       <Router basename="/localtideFE">
   <div className="app-container">
     <div className="main-content">
       <Routes>
