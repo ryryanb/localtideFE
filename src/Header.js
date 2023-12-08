@@ -33,7 +33,7 @@ const theme = useTheme();
         <IconButton>
           <SearchIcon />
         </IconButton>
-        <RouterLink to="/localtideFE/sign-in" style={{ textDecoration: 'none' }}>
+        <RouterLink to="/sign-in" style={{ textDecoration: 'none' }}>
       <Button variant="outlined" size="small">
         Login
       </Button>
