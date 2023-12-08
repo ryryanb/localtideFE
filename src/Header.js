@@ -7,11 +7,16 @@ import SearchIcon from '@mui/icons-material/Search';
 import Typography from '@mui/material/Typography';
 import Link from '@mui/material/Link';
 import { Link as RouterLink } from 'react-router-dom';
+import useTheme from '@mui/material/styles/useTheme';
+import useMediaQuery from '@mui/material/useMediaQuery';
 
 function Header(props) {
   const { sections, title } = props;
 
+const theme = useTheme();
+  const isSmallScreen = useMediaQuery(theme.breakpoints.down('sm'));
   return (
+    
     <React.Fragment>
       <Toolbar sx={{ borderBottom: 1, borderColor: 'divider' }}>
         <Button size="small">Subscribe</Button>
@@ -37,7 +42,8 @@ function Header(props) {
       <Toolbar
         component="nav"
         variant="dense"
-        sx={{ justifyContent: 'space-between', overflowX: 'auto' }}
+        sx={{ justifyContent: isSmallScreen ? 'center' : 'space-between', overflowX: 'auto', maxWidth: '100', 
+        flexWrap: 'wrap',  alignItems: 'center' }}
       >
         {sections.map((section) => (
           <Link

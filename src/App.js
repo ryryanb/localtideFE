@@ -9,6 +9,10 @@ import SignUp from './SignUp';
 import Dashboard from './Dashboard';
 import Blog from './Blog';
 import Home from './Home';
+import ReviewsAndRec from './ReviewsAndRec';
+import Explore from './Explore';
+import UserProfile from './UserProfile';
+import Portfolio from './Portfolio';
 //import ActivityPlatform from './ActivityPlatform';
 // Import other components for remaining menu options
 
@@ -16,13 +20,16 @@ const App = () => {
   return (
     <Router>
       <div className="app-container">
-        <Blog />
         <div className="main-content">
           <Routes>
              <Route path="/sign-in" element={<SignIn />} />  
+             <Route path="/explore" element={<Explore />} /> 
+              <Route path="/userprofile" element={<UserProfile />} /> 
              <Route path="/sign-up" element={<SignUp />} /> 
               <Route path="/dashboard" element={<Dashboard />} />
-              <Route path="/blog" element={<Blog />} />  
+              <Route path="/home" element={<Home />} /> 
+              <Route path="/newsandblog" element={<Blog />} /> 
+              <Route path="/reviewsandrec" element={<ReviewsAndRec />} />   
             {/* <Route path="/user-registration" element={<UserRegistration />} />
          
             <Route path="/activity-platform" element={<ActivityPlatform />} />

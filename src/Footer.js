@@ -9,8 +9,8 @@ function Copyright() {
   return (
     <Typography variant="body2" color="text.secondary" align="center">
       {'Copyright © '}
-      <Link color="inherit" href="https://mui.com/">
-        Your Website
+      <Link color="inherit" href="/home">
+        LOCALTIDE
       </Link>{' '}
       {new Date().getFullYear()}
       {'.'}
@@ -24,18 +24,12 @@ function Footer(props) {
   return (
     <Box component="footer" sx={{ bgcolor: 'background.paper', py: 6 }}>
       <Container maxWidth="lg">
-        <Typography variant="h6" align="center" gutterBottom>
-          {title}
-        </Typography>
-        <Typography
-          variant="subtitle1"
-          align="center"
-          color="text.secondary"
-          component="p"
-        >
-          {description}
-        </Typography>
         <Copyright />
+      <Typography variant="body2" align="center">
+        <Link href="https://www.linkedin.com/in/ryanreybondoc/" target="_blank" >
+          Ryan Rey Bondoc
+        </Link>
+      </Typography>
       </Container>
     </Box>
   );

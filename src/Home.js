@@ -1,208 +1,101 @@
-import React, { useState } from 'react';
+import React from 'react';
 import {
-  AppBar,
-  Box,
-  Button,
   Container,
-  CssBaseline,
-  Drawer,
-  IconButton,
-  List,
-  ListItem,
-  ListItemText,
-  Modal,
-  Paper,
-  TextField,
-  Toolbar,
   Typography,
+  Button,
+  Grid,
+  Paper,
 } from '@mui/material';
-import MenuIcon from '@mui/icons-material/Menu';
-import CloseIcon from '@mui/icons-material/Close';
+import { createTheme, ThemeProvider } from '@mui/material/styles';
+import CssBaseline from '@mui/material/CssBaseline';
+import Footer from './Footer';
+import LocalTideHeader from './LocalTideHeader';
 
-const Sidebar = () => {
-  const [open, setOpen] = useState(false);
+const defaultTheme = createTheme();
 
-  const handleDrawerOpen = () => {
-    setOpen(true);
-  };
+const homeContainerStyle = {
+  paddingTop: '64px', // Adjust as needed
+  paddingBottom: '64px', // Adjust as needed
+};
 
-  const handleDrawerClose = () => {
-    setOpen(false);
-  };
-
-  return (
-    <>
-      {/* Sidebar/menu */}
-      <Drawer
-        variant="temporary"
-        anchor="left"
-        open={open}
-        onClose={handleDrawerClose}
-        ModalProps={{
-          keepMounted: true, // Better open performance on mobile.
-        }}
-      >
-        <div>
-          <IconButton onClick={handleDrawerClose}>
-            <CloseIcon />
-          </IconButton>
-        </div>
-        {/* Content of your sidebar goes here */}
-      </Drawer>
-
-      {/* Top menu on small screens */}
-      <AppBar position="fixed">
-        <Toolbar>
-          <IconButton
-            color="inherit"
-            aria-label="open drawer"
-            onClick={handleDrawerOpen}
-            edge="start"
-          >
-            <MenuIcon />
-          </IconButton>
-          <Typography variant="h6" noWrap>
-            LOGO
-          </Typography>
-        </Toolbar>
-      </AppBar>
-    </>
-  );
+const featurePaperStyle = {
+  padding: '16px',
+  textAlign: 'center',
 };
 
 const Home = () => {
-  const [modalOpen, setModalOpen] = useState(false);
+  const features = [
+    {
+      title: 'Local News & Events',
+      description: 'Stay updated with local news and events happening in your area.',
+    },
+    {
+      title: 'Customizable Activities',
+      description: 'Create and join activities based on your preferences and interests.',
+    },
+    {
+      title: 'Explore Points of Interest',
+      description: 'Discover local businesses, attractions, and more.',
+    },
+  ];
 
-  const handleModalOpen = () => {
-    setModalOpen(true);
-  };
-
-  const handleModalClose = () => {
-    setModalOpen(false);
+  const customTypographyStyle = {
+    textAlign: 'center',
+    fontFamily: 'Montserrat, Roboto, Lato, Poppins, sans-serif',
+    color: 'blue',
+    fontSize: '3.5rem',
+    fontWeight: 'bold',
+    marginTop: '2%',
+    // Add more styles as needed
   };
 
   return (
-    <div>
+    <ThemeProvider theme={defaultTheme}>
       <CssBaseline />
-      <Sidebar />
+      <Container maxWidth="lg">
+        <LocalTideHeader />
 
-      {/* !PAGE CONTENT! */}
-      <div style={{ marginLeft: '250px' }}>
-        {/* Push down content on small screens */}
-        <div style={{ marginTop: '83px' }}></div>
+      <Typography variant="h1" style={customTypographyStyle}>
+        Welcome to Localtide
+      </Typography>
+     <Typography variant="body1" paragraph style={{ marginTop: '2%', marginBottom: '3%', textAlign: 'center' }}>
+  Localtide is your go-to platform for exploring and engaging in local
+  activities. <br/>
+  Discover the best of your community with these key features:
+</Typography>
 
-        {/* Top header */}
-        <header style={{ padding: '24px 48px' }}>
-          <Typography variant="h1" className="w3-jumbo w3-hide-small">
-            New arrivals
-          </Typography>
-          <Typography variant="h1" className="w3-hide-large w3-hide-medium">
-            New arrivals
-          </Typography>
-          <Typography variant="h1" className="w3-hide-small">
-            COLLECTION 2016
-          </Typography>
-          <Button
-            variant="contained"
-            color="primary"
-            size="large"
-            style={{ marginTop: '16px' }}
-          >
-            SHOP NOW
-          </Button>
-        </header>
 
-        {/* Image header */}
-        <div style={{ position: 'relative' }}>
-          <img
-            src="/w3images/jeans.jpg"
-            alt="Jeans"
-            style={{ width: '100%' }}
-          />
-          <div
-            style={{
-              position: 'absolute',
-              top: '24px',
-              left: '48px',
-              color: 'white',
-            }}
-          >
-            <Typography variant="h1" className="w3-jumbo w3-hide-small">
-              New arrivals
-            </Typography>
-            <Typography variant="h1" className="w3-hide-large w3-hide-medium">
-              New arrivals
-            </Typography>
-            <Typography variant="h1" className="w3-hide-small">
-              COLLECTION 2016
-            </Typography>
-            <Button
-              variant="contained"
-              color="primary"
-              size="large"
-              onClick={handleModalOpen}
-              style={{ marginTop: '16px' }}
-            >
-              SHOP NOW
-            </Button>
-          </div>
-        </div>
+      <Grid container spacing={3} >
+        {features.map((feature, index) => (
+          <Grid item key={index} xs={12} sm={6} md={4}>
+            <Paper elevation={3} style={featurePaperStyle}>
+              <Typography variant="h5" gutterBottom>
+                {feature.title}
+              </Typography>
+              <Typography variant="body2">{feature.description}</Typography>
+            </Paper>
+          </Grid>
+        ))}
+      </Grid>
 
-        {/* Modal */}
-        <Modal
-          open={modalOpen}
-          onClose={handleModalClose}
-          aria-labelledby="modal-modal-title"
-          aria-describedby="modal-modal-description"
-        >
-          <Paper style={{ padding: '32px' }}>
-            <IconButton
-              edge="end"
-              color="inherit"
-              onClick={handleModalClose}
-              aria-label="close"
-            >
-              <CloseIcon />
-            </IconButton>
-            <Typography variant="h2" id="modal-modal-title">
-              Product Details
-            </Typography>
-            <Typography variant="body1" id="modal-modal-description">
-              {/* Product details go here */}
-            </Typography>
-          </Paper>
-        </Modal>
+<div style={{ display: 'flex', justifyContent: 'center', margin: '3%' }}>
+  <Button
+    variant="contained"
+    color="primary"
+    size="large"
+    component="a"
+    href="/explore"
+  >
+    Explore Now
+  </Button>
+</div>
 
-        {/* Product grid */}
-        <div className="w3-row w3-grayscale">
-          {/* Products go here */}
-        </div>
-
-        {/* Subscribe section */}
-        <div
-          style={{
-            backgroundColor: '#000',
-            padding: '32px',
-            textAlign: 'center',
-          }}
-        >
-          <Typography variant="h1" style={{ color: '#fff' }}>
-            Subscribe
-          </Typography>
-          <p style={{ color: '#fff' }}>
-            To get special offers and VIP treatment:
-          </p>
-          <TextField
-            variant="outlined"
-            placeholder="Enter e-mail"
-            style={{ width: '100%', marginBottom: '16px' }}
-          />
-          <Button variant="contained" color="secondary">
-            Subscribe
-          </Button>
-        </div>
-      </div>
-    </div>
+    </Container>
+      <Footer
+        title="Footer"
+        description="Something here to give the footer a purpose!"
+      />
+    </ThemeProvider>
   );
 };
 
