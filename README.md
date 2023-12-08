@@ -2,15 +2,20 @@ LocalTide is an innovative Node.js-powered web application designed to be the be
 
 Key Features:
 
-    Local News Feed: Stay informed about the latest happenings in your community with a dynamic and up-to-date news feed.
+    Local News Feed: Stay informed about the latest happenings in your community with a dynamic and 
+    up-to-date news feed.
 
-    Interactive Events Calendar: Discover and participate in local events, festivals, and activities that shape the culture of your town.
+    Interactive Events Calendar: Discover and participate in local events, festivals, and activities that shape 
+    the culture of your town.
 
-    User-Generated Content: Share your experiences and recommendations. Whether it's the best local eateries, hidden gems, or must-attend events, your voice shapes the narrative.
+    User-Generated Content: Share your experiences and recommendations. Whether it's the best local eateries,
+    hidden gems, or must-attend events, your voice shapes the narrative.
 
-    Explore Points of Interest: Navigate your town with ease using our integrated map feature, showcasing key points of interest, businesses, and attractions.
+    Explore Points of Interest: Navigate your town with ease using our integrated map feature, showcasing key 
+    points of interest, businesses, and attractions.
 
-    Connect with Locals: Forge new connections by joining activities and engaging with fellow locals, creating a vibrant and connected community.
+    Connect with Locals: Forge new connections by joining activities and engaging with fellow locals, creating 
+    a vibrant and connected community.
 
 Why LocalTide?
 LocalTide goes beyond traditional news platforms, creating an immersive experience that captures the essence of your town. It's not just a website; it's a community hub where everyone's voice matters.
