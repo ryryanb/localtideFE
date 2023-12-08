@@ -46,16 +46,14 @@ const theme = useTheme();
         flexWrap: 'wrap',  alignItems: 'center' }}
       >
         {sections.map((section) => (
-          <Link
-            color="inherit"
-            noWrap
-            key={section.title}
-            variant="body2"
-            href={section.url}
-            sx={{ p: 1, flexShrink: 0 }}
-          >
-            {section.title}
-          </Link>
+          <RouterLink
+  color="inherit"
+  noWrap
+  to={section.url}  // Use 'to' instead of 'href' for react-router Link
+  sx={{ p: 1, flexShrink: 0 }}
+>
+  {section.title}
+</RouterLink>
         ))}
       </Toolbar>
     </React.Fragment>
