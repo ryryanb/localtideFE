@@ -1,4 +1,26 @@
-Localtide Testing Checklist
+LocalTide is an innovative Node.js-powered web application designed to be the beating heart of your community. Seamlessly blending user-generated content, local news, and interactive features, LocalTide connects residents, digital nomads, and travelers to the pulse of your town.
+
+Key Features:
+
+    Local News Feed: Stay informed about the latest happenings in your community with a dynamic and up-to-date news feed.
+
+    Interactive Events Calendar: Discover and participate in local events, festivals, and activities that shape the culture of your town.
+
+    User-Generated Content: Share your experiences and recommendations. Whether it's the best local eateries, hidden gems, or must-attend events, your voice shapes the narrative.
+
+    Explore Points of Interest: Navigate your town with ease using our integrated map feature, showcasing key points of interest, businesses, and attractions.
+
+    Connect with Locals: Forge new connections by joining activities and engaging with fellow locals, creating a vibrant and connected community.
+
+Why LocalTide?
+LocalTide goes beyond traditional news platforms, creating an immersive experience that captures the essence of your town. It's not just a website; it's a community hub where everyone's voice matters.
+
+Join LocalTide today and dive into the heartbeat of your community!
+
+Localtide is a work in progress. Development version deployment is at: https://ryryanb.github.io/localtideFE/home
+To date no features are yet production-ready. Backend is separately developed so APIs are temporarily run on the FE.
+Testing Checklist
+
 Functionality Testing
 
     Verify that users can access and navigate the News Section.
