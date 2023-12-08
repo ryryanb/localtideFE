@@ -17,18 +17,7 @@ import post1 from './blog-post.1.md';
 import post2 from './blog-post.2.md';
 import post3 from './blog-post.3.md';
 
-const sections = [
-  { title: 'Home', url: '#' },
-  { title: 'News & Blog', url: '#' },
-  { title: 'Events Calendar', url: '#' },
-  { title: 'Explore', url: '/explore' },
-  { title: 'Social Hub', url: '#' },
-  { title: 'Activities', url: '#' },
-  { title: 'User Profiles', url: '/userprofile' },
-  { title: 'Reviews & Recommendations', url: '/reviewsandrec' },
-  { title: 'Notifications', url: '#' },
-  { title: 'Community', url: '#' },
-];
+
 
 const mainFeaturedPost = {
   title: 'Title of a longer featured blog post',

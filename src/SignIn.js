@@ -19,7 +19,7 @@ const SignIn = () => {
       const userCredential = await signInWithEmailAndPassword(auth, email, password);
       const user = userCredential.user;
       console.log(user);
-      navigate("/home");
+      navigate("/localtideFE/home");
     } catch (error) {
       const errorCode = error.code;
       const errorMessage = error.message;
@@ -105,7 +105,7 @@ const SignIn = () => {
                   </Link>
                 </Grid>
                 <Grid item>
-                  <Link component={NavLink} to="/sign-up" variant="body2">
+                  <Link component={NavLink} to="/localtideFE/sign-up" variant="body2">
                     {"Don't have an account? Sign Up"}
                   </Link>
                 </Grid>

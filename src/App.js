@@ -18,26 +18,27 @@ import Portfolio from './Portfolio';
 
 const App = () => {
   return (
-    <Router>
-      <div className="app-container">
-        <div className="main-content">
-          <Routes>
-             <Route path="/sign-in" element={<SignIn />} />  
-             <Route path="/explore" element={<Explore />} /> 
-              <Route path="/userprofile" element={<UserProfile />} /> 
-             <Route path="/sign-up" element={<SignUp />} /> 
+    <Router basename="/localtideFE">
+  <div className="app-container">
+    <div className="main-content">
+      <Routes>
+       
+              <Route index element={<Home />} />
+              <Route path="/sign-in" element={<SignIn />} />
+              <Route path="/explore" element={<Explore />} />
+              <Route path="/userprofile" element={<UserProfile />} />
+              <Route path="/sign-up" element={<SignUp />} />
               <Route path="/dashboard" element={<Dashboard />} />
-              <Route path="/home" element={<Home />} /> 
-              <Route path="/newsandblog" element={<Blog />} /> 
-              <Route path="/reviewsandrec" element={<ReviewsAndRec />} />   
-            {/* <Route path="/user-registration" element={<UserRegistration />} />
+              <Route path="/home" element={<Home />} />
+              <Route path="/newsandblog" element={<Blog />} />
+              <Route path="/reviewsandrec" element={<ReviewsAndRec />} />
          
-            <Route path="/activity-platform" element={<ActivityPlatform />} />
-            Add routes for other menu options */}
-          </Routes>
-        </div>
-      </div>
-    </Router>
+    
+      </Routes>
+    </div>
+  </div>
+</Router>
+
   );
 };
 

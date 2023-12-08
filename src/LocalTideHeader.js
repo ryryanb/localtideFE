@@ -18,14 +18,14 @@ import post2 from './blog-post.2.md';
 import post3 from './blog-post.3.md';
 
 const sections = [
-  { title: 'Home', url: '/home' },
-  { title: 'News & Blog', url: '/newsandblog' },
+  { title: 'Home', url: '/localtideFE/home' },
+  { title: 'News & Blog', url: '/localtideFE/newsandblog' },
   { title: 'Events Calendar', url: '#' },
-  { title: 'Explore', url: '/explore' },
+  { title: 'Explore', url: '/localtideFE/explore' },
   { title: 'Social Hub', url: '#' },
   { title: 'Activities', url: '#' },
-  { title: 'User Profiles', url: '/userprofile' },
-  { title: 'Reviews & Recommendations', url: '/reviewsandrec' },
+  { title: 'User Profiles', url: '/localtideFE/userprofile' },
+  { title: 'Reviews & Recommendations', url: '/localtideFE/reviewsandrec' },
   { title: 'Notifications', url: '#' },
   { title: 'Community', url: '#' },
 ];
