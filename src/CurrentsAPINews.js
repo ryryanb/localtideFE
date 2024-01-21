@@ -1,6 +1,14 @@
-// CurrentsAPINews.js
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import { createTheme, ThemeProvider } from '@mui/material/styles';
+import CssBaseline from '@mui/material/CssBaseline';
+import Footer from './Footer';
+import LocalTideHeader from './LocalTideHeader';
+import Container from '@mui/material/Container';
+
+
+
+const defaultTheme = createTheme();
 
 const CurrentsAPINews = () => {
   const [news, setNews] = useState([]);
@@ -8,15 +16,21 @@ const CurrentsAPINews = () => {
   useEffect(() => {
     const fetchNews = async () => {
       try {
-        const backendUrl = process.env.REACT_APP_BACKEND_URL;
+        const apiKey = process.env.REACT_APP_CURRENTS_NEWS_API_KEY;
+        const keywords = process.env.REACT_APP_CURRENTS_NEWS_KEYWORDS;
+        const url = 'https://api.currentsapi.services/v1/search?' +
+          'keywords=' + keywords + '&language=en&apiKey=' + apiKey;
+        
+        //const encodedUrl = encodeURIComponent(url);
+        const response = await axios.get(url);
 
-      // Use the backendUrl variable to make API requests
-        const response = await axios.get(`${backendUrl}/api/currents`);
-
-        // Set the news data in the state
-        setNews(response.data);
+        if (response.data && response.data.news) {
+          setNews(response.data.news);
+        } else {
+          console.error('Invalid response format:', response.data);
+        }
       } catch (error) {
-        console.error('Error fetching news:', error);
+        console.error('   Error fetching news:', error);
       }
     };
 
@@ -24,21 +38,30 @@ const CurrentsAPINews = () => {
   }, []);
 
   return (
-    <div>
-   
-      {news.map((article) => (
+     <ThemeProvider theme={defaultTheme}>
+      <CssBaseline />
+      <Container maxWidth="lg">
+        <LocalTideHeader />
+
+      <h1>Latest News</h1>
+      {news && news.map((article) => (
         <div key={article.id}>
           <h2>{article.title}</h2>
           <p>{article.description}</p>
           <p>Author: {article.author}</p>
-          {article.image && <img className="thumbnail-image" src={article.image} alt={article.title} />}
+          {article.image && <img src={article.image} alt={article.title} />}
           <a href={article.url} target="_blank" rel="noopener noreferrer">
             Read more
           </a>
           <hr />
         </div>
       ))}
-    </div>
+    </Container>
+      <Footer
+        title="Footer"
+        description="Something here to give the footer a purpose!"
+      />
+    </ThemeProvider>
   );
 };
 

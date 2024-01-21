@@ -19,15 +19,17 @@ import post3 from './blog-post.3.md';
 
 const sections = [
   { title: 'Home', url: '/home' },
-  { title: 'News & Blog', url: '/newsandblog' },
-  { title: 'Events Calendar', url: '#' },
-  { title: 'Explore', url: '/explore' },
-  { title: 'Social Hub', url: '#' },
-  { title: 'Activities', url: '#' },
-  { title: 'User Profiles', url: '/userprofile' },
-  { title: 'Reviews & Recommendations', url: '/reviewsandrec' },
-  { title: 'Notifications', url: '#' },
-  { title: 'Community', url: '#' },
+  { title: 'News', url: '/news' },
+  { title: 'Blog', url: '/blog' },
+  { title: 'Dashboard', url: '/userdashboard' },
+ // { title: 'Events Calendar', url: '#' },
+ // { title: 'Explore', url: '/explore' },
+ // { title: 'Social Hub', url: '#' },
+ // { title: 'Activities', url: '#' },
+ // { title: 'User Profiles', url: '/userprofile' },
+ // { title: 'Reviews & Recommendations', url: '/reviewsandrec' },
+ // { title: 'Notifications', url: '#' },
+ // { title: 'Community', url: '#' },
 ];
 
 export default function Blog() {

@@ -1,6 +1,6 @@
 import * as React from 'react';
 import Grid from '@mui/material/Grid';
-import Container from '@mui/material/Container';
+
 import GitHubIcon from '@mui/icons-material/GitHub';
 import FacebookIcon from '@mui/icons-material/Facebook';
 import TwitterIcon from '@mui/icons-material/Twitter';
@@ -8,6 +8,7 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
 import Footer from './Footer';
 import LocalTideHeader from './LocalTideHeader';
+import Container from '@mui/material/Container';
 import MainFeaturedPost from './MainFeaturedPost';
 import FeaturedPost from './FeaturedPost';
 import Main from './Main';
@@ -16,6 +17,7 @@ import UserProfile from './UserProfile';
 import post1 from './blog-post.1.md';
 import post2 from './blog-post.2.md';
 import post3 from './blog-post.3.md';
+import AddBlog from './AddBlog';
 
 
 
@@ -75,7 +77,8 @@ const sidebar = {
   ],
 };
 
-export default function Blog() {
+export default function Blog
+() {
   return (
     <ThemeProvider theme={defaultTheme}>
       <CssBaseline />
@@ -88,6 +91,7 @@ export default function Blog() {
               <FeaturedPost key={post.title} post={post} />
             ))}
           </Grid>
+       
           <Grid container spacing={5} sx={{ mt: 3 }}>
             <Main title="From the firehose" posts={posts} />
             <SidebarBlog
@@ -97,6 +101,7 @@ export default function Blog() {
               social={sidebar.social}
             />
           </Grid>
+             <AddBlog/>
         </main>
       </Container>
       <Footer
