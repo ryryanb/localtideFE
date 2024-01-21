@@ -1,70 +1,160 @@
-# Getting Started with Create React App
+LocalTide is an innovative Node.js-powered web application designed to be the beating heart of your community. Seamlessly blending user-generated content, local news, and interactive features, LocalTide connects residents, digital nomads, and travelers to the pulse of your town.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Key Features:
 
-## Available Scripts
+    Local News Feed: Stay informed about the latest happenings in your community with a dynamic and 
+    up-to-date news feed.
 
-In the project directory, you can run:
+    Interactive Events Calendar: Discover and participate in local events, festivals, and activities that shape 
+    the culture of your town.
 
-### `npm start`
+    User-Generated Content: Share your experiences and recommendations. Whether it's the best local eateries,
+    hidden gems, or must-attend events, your voice shapes the narrative.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+    Explore Points of Interest: Navigate your town with ease using our integrated map feature, showcasing key 
+    points of interest, businesses, and attractions.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+    Connect with Locals: Forge new connections by joining activities and engaging with fellow locals, creating 
+    a vibrant and connected community.
 
-### `npm test`
+Why LocalTide?
+LocalTide goes beyond traditional news platforms, creating an immersive experience that captures the essence of your town. It's not just a website; it's a community hub where everyone's voice matters.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Join LocalTide today and dive into the heartbeat of your community!
 
-### `npm run build`
+Localtide is a work in progress. Development version deployment is at: https://ryryanb.github.io/localtideFE
+To date no features are yet production-ready. Backend is separately developed so APIs are temporarily run on the FE.
+Testing Checklist
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Functionality Testing
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+    Verify that users can access and navigate the News Section.
+    Test the creation and submission of events in the Local Events Calendar.
+    Check the accuracy of Google Maps integration for local points of interest.
+    Validate the aggregation of social media posts from various platforms.
+    Test the functionality of creating and joining activities in the Activity Platform.
+    Ensure users can create and customize their profiles successfully.
+    Verify the user-generated content system, including reviews and comments.
+    Test the effectiveness of the notification system for upcoming events and news.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Monetization Testing
 
-### `npm run eject`
+    Validate any monetization features such as featured listings or premium event promotions.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+Community Building Testing
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+    Test the functionality of community features, such as forums and chat rooms.
+    Verify the engagement and interaction within user forums and discussion groups.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+Analytics Testing
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+    Confirm that analytics are accurately tracking user engagement and preferences.
 
-## Learn More
+Accessibility Testing
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+    Ensure the web application is accessible to users with disabilities.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Security Testing
 
-### Code Splitting
+    Test security measures to protect user data and interactions.
+    Verify user authentication and authorization mechanisms.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+User Profiles Testing
 
-### Analyzing the Bundle Size
+    Check the creation, editing, and deletion of user profiles.
+    Test the customization features based on user preferences.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+User-generated Content Testing
 
-### Making a Progressive Web App
+    Verify the submission, editing, and deletion of user-generated content.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+Notifications Testing
 
-### Advanced Configuration
+    Test the delivery and accuracy of notifications to users.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+Launch and Marketing Testing
 
-### Deployment
+    Validate the effectiveness of the launch strategy in attracting users.
+    Confirm that marketing channels (social media, partnerships, online) are functioning as expected.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+Cross-Browser Compatibility Testing
 
-### `npm run build` fails to minify
+    Test the application on different browsers (Chrome, Firefox, Safari, Edge) to ensure compatibility.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Cross-Device Compatibility Testing
+
+    Ensure the application is responsive and works well on various devices (desktop, tablet, mobile).
+
+Performance Testing
+
+    Test the application's performance under different load conditions.
+    Validate response times for key functionalities.
+
+Usability Testing
+
+    Evaluate the overall user experience and interface design.
+    Test the intuitiveness of navigation and user interactions.
+
+Regression Testing
+
+    Perform regression testing after implementing new features or updates.
+
+Feedback Mechanism Testing
+
+    Test the functionality of the feedback mechanism for users.
+
+Customer Support Channel Testing
+
+    Verify the effectiveness of customer support channels in addressing user inquiries.
+
+Content Display Testing
+
+    Ensure content is displayed correctly, including images and multimedia.
+
+Localization Testing
+
+    Test the application's adaptability to different regions and languages.
+
+Data Backup and Recovery Testing
+
+    Test data backup and recovery mechanisms.
+
+Cross-Platform Testing
+
+    Test the application on different operating systems (Windows, macOS, Linux).
+
+Browser Console Testing
+
+    Check for any errors or warnings in the browser console.
+
+Form Validation Testing
+
+    Validate form inputs for accuracy and proper error handling.
+
+Cross-Link Testing
+
+    Test links within the application to ensure they lead to the correct destinations.
+
+Session Management Testing
+
+    Verify the handling of user sessions and authentication tokens.
+
+Data Privacy Testing
+
+    Test for compliance with data privacy regulations and protection of user information.
+
+Database Testing
+
+    Validate data integrity and reliability in the database.
+
+API Integration Testing
+
+    Test the integration of any external APIs used in the application.
+
+Offline Testing
+
+    Check the application's behavior when the user is offline.
+
+Continuous Integration/Continuous Deployment (CI/CD) Testing
+
+    Verify the functionality of automated CI/CD pipelines.
